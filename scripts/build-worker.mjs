@@ -4,6 +4,8 @@ import { resolve } from "node:path";
 const root = process.cwd();
 const output = resolve(root, "dist");
 const server = resolve(output, "server");
+let hostingManifest;
+try { hostingManifest = await readFile(resolve(root, ".openai", "hosting.json")); } catch (error) { if (error?.code !== "ENOENT") throw error; }
 const worker = String.raw`
 const placeCache = new Map();
 
@@ -99,7 +101,6 @@ export default { async fetch(request, env) { const url = new URL(request.url); i
 `;
 
 await mkdir(server, { recursive: true });
-await mkdir(resolve(output, ".openai"), { recursive: true });
 await writeFile(resolve(server, "index.js"), worker);
 await writeFile(resolve(server, "wrangler.json"), JSON.stringify({ main: "index.js", compatibility_date: "2025-09-01", assets: { directory: "../client", binding: "ASSETS", not_found_handling: "single-page-application" } }, null, 2));
-await writeFile(resolve(output, ".openai", "hosting.json"), await readFile(resolve(root, ".openai", "hosting.json")));
+if (hostingManifest) { await mkdir(resolve(output, ".openai"), { recursive: true }); await writeFile(resolve(output, ".openai", "hosting.json"), hostingManifest); }
