@@ -1,0 +1,9 @@
+import { ArrowUpRight, CalendarHeart, MessageCircle } from "lucide-react";
+import { PageHero } from "../components/PageHero";
+import { siteConfig } from "../data/siteConfig";
+
+export function InvitePage({ onEnquire }: { onEnquire: () => void }) {
+  return <><PageHero eyebrow="Invite for katha" title={<>आस्था के आयोजन में <span className="text-[#ae5028]">सादर आमंत्रण</span></>} copy="श्रीराम कथा, सत्संग, धार्मिक प्रवचन या विशेष वैदिक अनुष्ठान के लिए आयोजन संबंधी जानकारी साझा करें।" />
+    <section className="section-space bg-[#fffdf8]"><div className="page-container grid gap-5 lg:grid-cols-[1.05fr_.95fr]"><article className="relative overflow-hidden bg-[#4e1016] p-8 text-[#fff4dd] md:p-12"><div className="lotus-line absolute inset-0 opacity-30" /><div className="relative"><CalendarHeart className="text-[#eac66c]" /><h2 className="deva-heading mt-7 text-4xl font-semibold md:text-5xl">कथा एवं आयोजन का विनम्र अनुरोध</h2><p className="mt-5 max-w-lg text-sm leading-7 text-[#f3dfb2]">अपने शहर, आयोजन का प्रकार, संभावित तिथि और स्थान साझा करें। टीम आपके अनुरोध पर आगे की जानकारी के लिए संपर्क करेगी।</p><button className="button mt-8 !bg-[#efc766] !text-[#4e1016]" onClick={onEnquire}>अनुरोध भेजें <ArrowUpRight size={15} /></button></div></article><article className="border border-[#d8c5a1]/65 bg-[#f9f0df] p-8 md:p-12"><p className="eyebrow">Direct contact</p><h2 className="deva-heading mt-4 text-4xl font-semibold text-[#451a13]">सीधे बात करें</h2><p className="mt-4 text-sm leading-7 text-[#755d52]">आयोजन संबंधी शुरुआती बातचीत के लिए टीम से कॉल या व्हाट्सऐप पर जुड़ें।</p><a className="display mt-8 block text-3xl font-semibold text-[#7c301b]" href={`tel:${siteConfig.primaryPhone.replace(/\s/g, "")}`}>{siteConfig.primaryPhone}</a><a className="button button-outline mt-6" href={`https://wa.me/${siteConfig.whatsapp}`} target="_blank" rel="noreferrer"><MessageCircle size={15} /> व्हाट्सऐप</a></article></div></section>
+  </>;
+}

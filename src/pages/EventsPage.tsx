@@ -1,0 +1,10 @@
+import { CalendarPlus, MapPin } from "lucide-react";
+import { PageHero } from "../components/PageHero";
+import { siteConfig } from "../data/siteConfig";
+
+export function EventsPage({ onEnquire }: { onEnquire: () => void }) {
+  return <><PageHero eyebrow="Katha & events" title={<>आयोजन जो <span className="text-[#ae5028]">मन को जोड़ें</span></>} copy="श्रीराम कथा, सत्संग, प्रवचन और विशेष धार्मिक आयोजनों के लिए इस पृष्ठ पर कार्यक्रमों की जानकारी प्रकाशित की जाएगी।" />
+    <section className="section-space bg-[#fffdf8]"><div className="page-container"><div className="flex flex-wrap gap-2">{["सभी", "कथा", "सत्संग", "भजन", "विशेष आयोजन"].map((filter, index) => <button key={filter} className={`border px-4 py-2 text-[11px] font-bold ${index === 0 ? "border-[#4e1016] bg-[#4e1016] text-[#fff6df]" : "border-[#d7c4a5] bg-[#fffaf0] text-[#6b4030]"}`}>{filter}</button>)}</div><div className="mt-9 grid min-h-80 place-items-center border border-dashed border-[#c9aa6a]/65 bg-[#fdf7ea] p-8 text-center"><div><span className="mx-auto grid size-14 place-items-center rounded-full border border-[#b38a42]/55 text-[#a24c27]"><CalendarPlus size={23} /></span><h2 className="deva-heading mt-5 text-4xl font-semibold text-[#431913]">आयोजनों की सूचना शीघ्र</h2><p className="mx-auto mt-3 max-w-md text-sm leading-7 text-[#755d52]">किसी भी आगामी कथा, सत्संग या विशेष आयोजन की तिथि तय होते ही जानकारी यहाँ जोड़ी जाएगी। कथा के लिए अभी संपर्क किया जा सकता है।</p><button className="button button-primary mt-7" onClick={onEnquire}>कथा हेतु संपर्क करें</button></div></div></div></section>
+    <section className="bg-[#f5e8d0] py-12"><div className="page-container flex flex-col justify-between gap-5 sm:flex-row sm:items-center"><div className="flex items-center gap-3 text-[#4f2017]"><MapPin className="text-[#a85228]" /><div><p className="display text-xl font-semibold">{siteConfig.hindiAddress}</p><p className="mt-1 text-xs text-[#7a5944]">आयोजन के निमंत्रण के लिए टीम से बात करें।</p></div></div><a className="button button-dark" href={`tel:${siteConfig.primaryPhone.replace(/\s/g, "")}`}>कॉल करें</a></div></section>
+  </>;
+}

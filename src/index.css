@@ -1,0 +1,40 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,600&family=Manrope:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;500;600;700&family=Noto+Serif+Devanagari:wght@500;600;700;800&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { font-family: "Manrope", "Noto Sans Devanagari", sans-serif; color: #271817; background: #fcf7ec; font-synthesis: none; }
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { min-width: 320px; margin: 0; overflow-x: hidden; }
+button, input, select, textarea { font: inherit; }
+button { cursor: pointer; }
+::selection { color: #fffaf0; background: #8f3f24; }
+
+@layer components {
+  .page-container { width: min(1170px, calc(100% - 40px)); @apply mx-auto; }
+  .display { font-family: "Cormorant Garamond", "Noto Serif Devanagari", serif; }
+  .section-space { @apply py-20 md:py-28; }
+  .eyebrow { @apply flex items-center gap-3 text-[10px] font-bold uppercase tracking-[0.2em] text-[#a24c27]; }
+  .eyebrow::before { content: ""; @apply h-px w-6 bg-[#b38a42]; }
+  .button { @apply inline-flex min-h-12 items-center justify-center gap-2 rounded-sm px-5 py-3 text-xs font-bold transition duration-300; }
+  .button-primary { @apply bg-[#b85e2a] text-white shadow-[0_12px_26px_rgba(95,35,15,.20)] hover:-translate-y-0.5 hover:bg-[#973f1e]; }
+  .button-dark { @apply bg-[#4e1016] text-[#fff7e7] hover:-translate-y-0.5 hover:bg-[#32050a]; }
+  .button-outline { @apply border border-[#b38a42]/55 bg-white/0 text-[#4e1016] hover:-translate-y-0.5 hover:bg-[#fff9ea]; }
+  .gold-rule { @apply h-px bg-gradient-to-r from-transparent via-[#b38a42]/70 to-transparent; }
+  .quiet-card { @apply border border-[#d8c5a1]/55 bg-white/65 shadow-[0_16px_45px_rgba(69,33,15,.055)]; }
+}
+
+.grain::after { content: ""; pointer-events: none; position: absolute; inset: 0; opacity: .08; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E"); mix-blend-mode: multiply; }
+.lotus-line { background-image: radial-gradient(ellipse at center, transparent 0 36%, rgba(179,138,66,.13) 37% 38%, transparent 39%), linear-gradient(30deg, transparent 48%, rgba(179,138,66,.08) 49% 50%, transparent 51%), linear-gradient(-30deg, transparent 48%, rgba(179,138,66,.08) 49% 50%, transparent 51%); }
+.deva-heading { font-family: "Cormorant Garamond", "Noto Serif Devanagari", serif; line-height: 1.14; letter-spacing: -.025em; }
+html[lang="hi"] .deva-heading { line-height: 1.38; letter-spacing: -.015em; }
+.mask-fade { mask-image: linear-gradient(to bottom, black 65%, transparent); }
+.kundli-input { @apply min-h-12 w-full border border-[#e5c972]/45 bg-[#fffaf0] px-3 text-base font-normal text-[#3e1711] outline-none placeholder:text-[#9a7b61] focus:border-[#efc35d] focus:ring-2 focus:ring-[#efc35d]/30; }
+#kundli .page-container > * { min-width: 0; }
+#kundli svg[aria-label] { display: block; max-width: 100%; min-width: 0; }
+
+@media (max-width: 640px) {
+  .page-container { width: min(100% - 24px, 550px); }
+}
