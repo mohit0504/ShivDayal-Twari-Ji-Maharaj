@@ -12,7 +12,7 @@ function sendJson(response, body, status = 200) {
 }
 
 async function navamsha(path, body) {
-  const apiKey = process.env.vda_live_fec96211_HS3Lu5l94DiawWG66ZopnZsg54wv9HivxYMXnRn7K_0;
+  const apiKey = process.env.NAVAMSHA_API_KEY;
   if (!apiKey) throw new Error("Astrology service is not configured.");
   const response = await fetch(`https://api.navamsha.in/api/v1/${path}`, {
     method: "POST",
