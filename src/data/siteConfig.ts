@@ -13,7 +13,7 @@ export const siteConfig = {
   name: "Shri Shivdayal Tiwari Ji Maharaj",
   hindiName: "श्री शिवदयाल तिवारी जी महाराज",
   designation: "Manaskinkar • Kathavachak • Jyotishvid",
-  hindiDesignation: "मानसकिंकर • कथावाचक • ज्योतिषविद",
+  hindiDesignation: "मानसकिंकर • कथावाचक • ज्योतिर्विद",
   tagline: "Ancient wisdom. Timeless values. Modern guidance.",
   hindiTagline: "प्राचीन ज्ञान • शाश्वत मूल्य • आधुनिक मार्गदर्शन",
   description: "Jyotish consultation, Shri Ram Katha, spiritual discourses and Vedic rituals from Kashi, Varanasi.",
