@@ -20,7 +20,9 @@ export function HomePage({ language, setLanguage }: Props) {
   const copy = text[language];
   useEffect(() => {
     document.documentElement.lang = language;
-    document.title = language === "hi" ? "श्री शिवदयाल तिवारी जी महाराज | काशी" : "Shri Shivdayal Tiwari Ji Maharaj | Kashi";
+    document.title = language === "hi"
+      ? "श्री शिवदयाल तिवारी जी महाराज | कथावाचक एवं ज्योतिषविद, काशी"
+      : "Shivdayal Ji Maharaj | Kathavachak & Jyotishvid, Kashi";
   }, [language]);
 
   return <div className="bg-[#fffdf8] text-[#301713]">
